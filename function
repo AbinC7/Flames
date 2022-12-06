@@ -1,0 +1,26 @@
+def name(x,y):
+    if len(x) > len(y):
+        return common(x,y)
+    else:
+        return common(y,x)
+        
+def common(x,y):
+    for i in x[:]:
+        if i in y:
+            x.remove(i)
+            y.remove(i)
+    for j in y:
+        x.append(j)    
+    return relationship(len(x))
+
+def relationship(x):
+    flames = {0:"Friends",1:"Lovers",2:"Admirers",3:"Marriage",4:"Enemies",5:"Secret lovers"}
+    m = x % 6
+    return flames[m]
+
+
+m = input("Enter your name:")
+n = input("Enter your crush name:")
+x = list(m)
+y = list(n)
+name(x,y)
